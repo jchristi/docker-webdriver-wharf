@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir -p /.mozilla/plugins
+ln -s /usr/lib64/flash-plugin/libflashplayer.so /.mozilla/plugins/libflashplayer.so
+tar -C /root/ -xjvf /root/firefox.tar.bz2
+rm -f /root/firefox.tar.bz2

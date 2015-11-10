@@ -1,0 +1,12 @@
+#!/bin/bash
+yum -y install gcc gcc-c++ make flex bison gperf ruby openssl-devel \
+  freetype-devel fontconfig-devel libicu-devel sqlite-devel libpng-devel \
+  libjpeg-devel
+unzip -d /root/ -q /root/phantomjs-source.zip
+rm -f /root/phantomjs-source.zip
+cd /root/phantomjs-2.0.0
+./build.sh --confirm
+chmod +x bin/phantomjs
+mv bin/phantomjs /usr/local/bin/
+rm -rf /root/phantomjs*
+yum clean all

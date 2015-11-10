@@ -1,0 +1,8 @@
+#!/bin/bash
+# chrome
+yum install -y /root/google-chrome-stable_current_x86_64.rpm
+rm -f /root/google-chrome-stable_current_x86_64.rpm
+# chromedriver
+mkdir -p /root/chrome-driver
+unzip -d /root/chrome-driver/ -q /root/chrome-driver/chromedriver_linux64.zip
+rm -f /root/chrome-driver/chromedriver_linux64.zip
