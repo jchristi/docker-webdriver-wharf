@@ -14,18 +14,19 @@ ADD https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm /
 RUN yum install -y /root/google-chrome-stable_current_x86_64.rpm; rm -f /root/google-chrome-stable_current_x86_64.rpm
 # chromedriver
 ADD http://chromedriver.storage.googleapis.com/2.14/chromedriver_linux64.zip /root/chrome-driver/chromedriver_linux64.zip
-RUN mkdir -p /root/chrome-driver; unzip -d /root/chrome-driver/ /root/chrome-driver/chromedriver_linux64.zip; rm -f /root/chrome-driver/chromedriver_linux64.zip
+RUN mkdir -p /root/chrome-driver; unzip -d /root/chrome-driver/ -q /root/chrome-driver/chromedriver_linux64.zip; rm -f /root/chrome-driver/chromedriver_linux64.zip
 # xstartup
 ADD ./xstartup.sh /xstartup.sh
 RUN chmod 775 /xstartup.sh
 # selenium
 ADD http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar /root/selenium-server/selenium-server-standalone.jar
 # firefox
-ADD https://download-installer.cdn.mozilla.net/pub/firefox/releases/latest-esr/linux-x86_64/en-US/firefox-31.5.0esr.tar.bz2 /root/firefox.tar.bz2
+ADD https://download-installer.cdn.mozilla.net/pub/firefox/releases/31.6.0esr/linux-x86_64/en-US/firefox-31.6.0esr.tar.bz2 /root/firefox.tar.bz2
 RUN tar -C /root/ -xjvf /root/firefox.tar.bz2; rm -f /root/firefox.tar.bz2
 # phantomJS
 ADD https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.0.0-source.zip /root/phantomjs-source.zip
-RUN yum -y install gcc gcc-c++ make flex bison gperf ruby openssl-devel freetype-devel fontconfig-devel libicu-devel sqlite-devel libpng-devel libjpeg-devel && mkdir -p /root/phantomjs && unzip -d /root/phantomjs/ /root/phantomjs-source.zip && rm -f /root/phantomjs-source.zip && cd /root/phantomjs && ./build.sh && chmod +x bin/phantomjs && mv bin/phantomjs /usr/local/bin/ ; rm -rf /root/phantomjs ; yum -y remove gcc gcc-c++ make flex bison gperf ruby openssl-devel freetype-devel fontconfig-devel libicu-devel sqlite-devel libpng-devel libjpeg-devel
+RUN yum -y install gcc gcc-c++ make flex bison gperf ruby openssl-devel freetype-devel fontconfig-devel libicu-devel sqlite-devel libpng-devel libjpeg-devel && unzip -d /root/ -q /root/phantomjs-source.zip && rm -f /root/phantomjs-source.zip
+RUN cd /root/phantomjs-2.0.0 && ./build.sh --confirm && chmod +x bin/phantomjs && mv bin/phantomjs /usr/local/bin/ && rm -rf /root/phantomjs* && yum -y remove gcc gcc-c++ make flex bison gperf ruby openssl-devel freetype-devel fontconfig-devel libicu-devel sqlite-devel libpng-devel libjpeg-devel
 # runtime
 EXPOSE 22
 EXPOSE 4444
