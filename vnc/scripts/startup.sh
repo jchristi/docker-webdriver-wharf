@@ -8,6 +8,6 @@ echo $PASS | passwd --stdin root
 /usr/sbin/sshd
 
 export DISPLAY=:99
-Xvfb :99 -shmem -screen 0 1280x1024x16 &
+Xvfb :99 -ac -screen 0 1280x1024x16 &
 x11vnc -display :99 -N -shared -forever &
 export PATH="/usr/local/bin:/usr/bin:/root/firefox:/root/chrome-driver:$PATH"

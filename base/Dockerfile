@@ -42,8 +42,8 @@ RUN sudo useradd seluser --shell /bin/bash --create-home \
   && echo 'seluser:secret' | chpasswd
 
 # Firefox
-# ENV FF_VER 31.6.0esr
-RUN wget --no-verbose https://download-installer.cdn.mozilla.net/pub/firefox/releases/31.6.0esr/linux-x86_64/en-US/firefox-31.6.0esr.tar.bz2 -O /tmp/firefox.tar.bz2 \
+ENV FF_VER 31.6.0esr
+RUN wget --no-verbose https://download-installer.cdn.mozilla.net/pub/firefox/releases/${FF_VER}/linux-x86_64/en-US/firefox-${FF_VER}.tar.bz2 -O /tmp/firefox.tar.bz2 \
   && tar -C /opt/ -xjf /tmp/firefox.tar.bz2 \
   && rm -f /tmp/firefox.tar.bz2
 
