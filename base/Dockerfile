@@ -25,6 +25,11 @@ RUN yum -y update \
     xorg-x11-fonts-ISO8859-1-100dpi \
     dejavu* \
     libexif \
+    libvpx \
+    mozilla-filesystem \
+    nspr.i686 \
+    nss.i686 \
+    sqlite.i686 \
     initscripts \
   && yum clean all \
   && sed -i 's#/dev/random#/dev/urandom#' /etc/alternatives/jre/lib/security/java.security
