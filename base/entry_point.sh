@@ -17,6 +17,7 @@ if [ ! -z "$SE_OPTS" ]; then
   echo "appending selenium options: ${SE_OPTS}"
 fi
 
+mkdir /var/log/selenium && touch $LOG
 xvfb-run \
   -e=$LOG \
   --wait=5 \
