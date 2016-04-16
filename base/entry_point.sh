@@ -17,9 +17,8 @@ if [ ! -z "$SE_OPTS" ]; then
   echo "appending selenium options: ${SE_OPTS}"
 fi
 
-mkdir /var/log/selenium && touch $LOG
 xvfb-run \
-  -e=$LOG \
+  -e $LOG \
   --wait=5 \
   --server-num=$DISPLAY \
   --server-args="-ac -screen 0 $GEOMETRY" \

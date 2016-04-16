@@ -36,6 +36,7 @@ RUN yum -y update \
 
 # Selenium
 RUN mkdir -p /opt/selenium \
+  && mkdir -p -m 1777 /var/log/selenium \
   && wget --no-verbose \
     http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar \
     -O /opt/selenium/selenium-server-standalone.jar
