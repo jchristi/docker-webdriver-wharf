@@ -20,7 +20,7 @@ fi
 xvfb-run \
   -e $LOG \
   --wait=5 \
-  --server-num=$DISPLAY \
+  --server-num=99 \
   --server-args="-ac -screen 0 $GEOMETRY" \
   java -jar /opt/selenium/selenium-server-standalone.jar \
   ${SE_OPTS} &
