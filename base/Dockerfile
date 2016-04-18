@@ -23,7 +23,8 @@ RUN yum -y update \
     xorg-x11-server-Xvfb \
     xorg-x11-fonts-ISO8859-1-75dpi \
     xorg-x11-fonts-ISO8859-1-100dpi \
-    dejavu* \
+    dejavu-* \
+    vlgothic-* \
     libexif \
     libvpx \
     mozilla-filesystem \
