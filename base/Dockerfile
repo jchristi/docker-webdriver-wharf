@@ -4,6 +4,10 @@ MAINTAINER "Jeremy Christian <jchristi@redhat.com>"
 USER root
 
 # Bring in all the dependencies
+#
+# Run "yum install yum-utils && repoquery --requires --resolves firefox" to find all
+# packages required by firefox
+#
 RUN yum -y update \
   && yum -y install \
     sudo \
@@ -20,6 +24,7 @@ RUN yum -y update \
     redhat-lsb \
     GConf2 \
     libXScrnSaver \
+    xorg-x11-server-utils \
     xorg-x11-server-Xvfb \
     xorg-x11-fonts-ISO8859-1-75dpi \
     xorg-x11-fonts-ISO8859-1-100dpi \
