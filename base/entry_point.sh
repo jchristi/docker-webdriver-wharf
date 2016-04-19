@@ -21,7 +21,7 @@ xvfb-run \
   -e $LOG \
   --wait=5 \
   --server-num=99 \
-  --server-args="-ac -screen 0 $GEOMETRY" \
+  --server-args="-screen 0 $GEOMETRY -ac +extension RANDR" \
   java -jar /opt/selenium/selenium-server-standalone.jar \
   ${SE_OPTS} &
 NODE_PID=$!
